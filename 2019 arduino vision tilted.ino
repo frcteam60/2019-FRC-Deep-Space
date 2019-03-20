@@ -31,7 +31,7 @@ void setup()
 
 void loop() {
   blocks = pixy.getBlocks(6);
-  Serial.print(blocks + C);
+//  Serial.print(blocks + C);
   int curBlock = 9;
 
   if (blocks >= 1) {
@@ -69,18 +69,18 @@ void loop() {
     if ((millis() - old) > 45)  outtxt = blank;
   }
 
-  Serial.print(Status + C);
-  Serial.print(curBlock + C);
-    Serial.print(millis() + C);
+  // Serial.print(Status + C);
+  // Serial.print(curBlock + C);
+  //   Serial.print(millis() + C);
 
-  for (int l = 0; l < blocks; l++) {
-    Serial.print(l + C);
-    Serial.print(pixy.blocks[l].signature + C);
-    Serial.print(pixy.blocks[l].x + C);
-    Serial.print(pixy.blocks[l].y + C);
-    Serial.print(pixy.blocks[l].width + C);
-    Serial.print(pixy.blocks[l].height + C);
-  }
+  //  for (int l = 0; l < blocks; l++) {
+  //   Serial.print(l + C);
+  //   Serial.print(pixy.blocks[l].signature + C);
+  //   Serial.print(pixy.blocks[l].x + C);
+  //   Serial.print(pixy.blocks[l].y + C);
+  //   Serial.print(pixy.blocks[l].width + C);
+  //   Serial.print(pixy.blocks[l].height + C);
+  // }
   Serial.println();
   if (Serial.read() == 82) Serial.print(outtxt);
 
