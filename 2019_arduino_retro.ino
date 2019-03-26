@@ -44,7 +44,7 @@ void loop() {
         widest = pixy.blocks[l].width;
       }
     }
-    
+
     for (int l = 0; l < blocks; l++) {
       float aspectRatio = float(pixy.blocks[l].height) / float(pixy.blocks[l].width);
       //      Serial.print(aspectRatio + C);
@@ -53,7 +53,7 @@ void loop() {
       //      Serial.print(l);
       //      Serial.print(pixy.blocks[l].height);
       //      Serial.println();
-      if ((aspectRatio >= 2.0) && (aspectRatio <= 3.5) && ((pixy.blocks[l].height) > int(tallest) / 2)) {
+      if ((aspectRatio >= 2.0) && (aspectRatio <= 3.5) && ((pixy.blocks[l].height) > int(tallest) / 2) && (pixy.blocks[l].x > 75) && (pixy.blocks[l].x < 245)) {
         float distX  = abs (float(pixy.blocks[l].x) - 159.5);
         if (distX < curDist) {
           curDist = distX;
@@ -65,14 +65,14 @@ void loop() {
   }
   if (widest > 32) curBlock = 9;
   if (pixy.blocks[curBlock].width > 27) curBlock = 9;
-  
-  
+
+
   if (curBlock < 8) {
     Status = "2";
 
     old = millis();
     outtxt = Status + C + T(pixy.blocks[curBlock].x) + C + T(pixy.blocks[curBlock].height) + LF;
-    // Serial.println(outtxt);
+//    Serial.println(outtxt);
 
   }
 
@@ -81,7 +81,7 @@ void loop() {
       outtxt = blank;
       Status = "1";
     }
-    
+
   }
 //  if (blocks > 0) {
 //    Serial.print(blocks + C);
